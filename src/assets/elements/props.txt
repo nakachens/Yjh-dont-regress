@@ -1,0 +1,118 @@
+- main panel chan - 
+window-shell--->
+width: 1062px;
+height: 985.506px;
+flex-shrink: 0;
+windowx-->
+width: 40px;
+height: 40px;
+flex-shrink: 0;
+
+window_-->
+width: 40px;
+height: 40px;
+flex-shrink: 0;
+
+background-->
+layout
+width: 1024px;
+height: 893px;
+flex-shrink: 0;
+aspect-ratio: 86/75;
+style
+border-radius: 30px 30px 0 0;
+background: url(<path-to-image>) lightgray 0px 0px / 100% 100% no-repeat;
+
+main-panel-->
+width: 775.926px;
+height: 522.636px;
+flex-shrink: 0;
+
+yjh-sprite-->
+width: 235px;
+height: 205px;
+flex-shrink: 0;
+aspect-ratio: 1/1;
+background: url(<path-to-image>) lightgray 50% / cover no-repeat;
+box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.25);
+
+info-btn-->
+width: 180px;
+height: 52px;
+flex-shrink: 0;
+
+data-btn-->
+width: 180px;
+height: 52px;
+flex-shrink: 0;
+
+start-btn-->
+width: 180px;
+height: 52px;
+flex-shrink: 0;
+
+- game-over panel chan - 
+go-panel-->
+width: 775.926px;
+height: 522.636px;
+flex-shrink: 0;
+
+menu-btn-go-->
+width: 178px;
+height: 52px;
+flex-shrink: 0;
+
+retry btn-go-->
+width: 180px;
+height: 52px;
+flex-shrink: 0;
+
+-data-panel--
+score-panel-->
+width: 517.334px;
+height: 772.389px;
+flex-shrink: 0;
+
+menubtn-data-->
+width: 252px;
+height: 69px;
+flex-shrink: 0;
+
+X-data-->
+width: 55px;
+height: 55px;
+flex-shrink: 0;
+
+high-score-value-text-->
+color: #080BB4;
+font-family: "Press Start 2P";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 157%; /* 31.4px */
+text-transform: uppercase;
+
+recent-score-value-text-->
+color: #000;
+font-family: "Press Start 2P";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 157%; /* 31.4px */
+text-transform: uppercase;
+
+--instructions-panel--
+info-panel-->
+width: 517.334px;
+height: 772.389px;
+flex-shrink: 0;
+
+menubtn-info-->
+width: 252px;
+height: 69px;
+flex-shrink: 0;
+
+X-info-->
+width: 55px;
+height: 55px;
+flex-shrink: 0;

@@ -1,0 +1,512 @@
+/* src/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Press Start 2P', cursive, sans-serif;
+  background: linear-gradient(180deg, #1a2a6c, #855308);
+  color: #116d91;
+  font-size: 12px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.window-frame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(24, 39, 86, 0.947);
+  z-index: 10000;
+  -webkit-app-region: drag; /* Makes the bar draggable */
+  padding: 0 10px;
+}
+
+.app {
+  max-width: 700px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  margin-top: 32px; /* Space for the window frame */
+  border: 5px solid transparent;
+}
+
+
+.screen {
+  padding: 30px;
+  text-align: center;
+  padding: 40px 30px 30px;
+}
+
+
+/* Home Screen Styles */
+.home-screen {
+  background: url('./assets/sprites/bg.gif')no-repeat center center;
+  background-size: cover;
+  width: 600px;
+  height: 469px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  aspect-ratio: 86/75;
+}
+.Panel1 {
+  background: url('./assets/elements/main-panel.png')no-repeat center center;
+  background-size: contain ;
+  width: 550px;
+  height: 450px;
+  flex-shrink: 0;
+  margin-top: -15px;
+}
+
+.character-preview {
+  width: 175px;
+  height: 150px;
+  background: url('./assets/sprites/yjh.gif')no-repeat center center;
+  background-size: contain ;
+  position:absolute;
+  right: 48px;
+  top: 125px;
+}
+
+.menu-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  z-index: 10;
+  gap: 5px;
+}
+
+button {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: none;
+  transform: translateY(3px);
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+
+.start-button {
+  background: url('./assets/elements/startbtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  margin-top: 280px;
+  margin-right: -35px;
+  flex-shrink: 0;
+}
+
+.start-button:hover {
+  background: url('./assets/elements/startbtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  flex-shrink: 0;
+  opacity: 80%;
+}
+
+.data-button {
+  background: url('./assets/elements/databtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  margin-top: 280px;
+  margin-right: -35px;
+  flex-shrink: 0;
+}
+
+.data-button:hover {
+  background: url('./assets/elements/databtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  flex-shrink: 0;
+  opacity: 80%;
+}
+
+.info-button {
+  background: url('./assets/elements/infobtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  margin-top: 280px;
+  margin-right: -23px;
+  flex-shrink: 0;
+}
+
+.info-button:hover {
+  background: url('./assets/elements/infobtn-main.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  flex-shrink: 0;
+  opacity: 80%;
+}
+
+/* Game Screen Styles */
+.game-screen {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  margin: 0 auto;
+
+  @keyframes burst {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+}
+
+canvas {
+  display: block;
+  background: #2c3e50;
+  border-bottom: 8px solid #321701;
+  cursor: pointer;
+}
+
+/* Game Over Popup Styles */
+.game-over-popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.popup-content {
+  background: url('./assets/elements/go-panel.png') no-repeat center center;
+  background-size: contain;
+  padding: 40px 30px 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 500px;
+  height: 400px;
+  animation: popIn 0.5s ease-out;
+}
+
+/* mute button smoll*/
+.mute-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: url('./assets/elements/unmutebtn.png') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+}
+
+.mute-button:hover {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: url('./assets/elements/unmutebtn.png') no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s;
+  opacity: 80%;
+}
+
+.mute-button.muted {
+  background: url('./assets/elements/mutebtn.png') no-repeat center center;
+  background-size: contain;
+}
+
+/**popup animation scaling*/
+@keyframes popIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 15px;
+}
+
+.retrybtn-go, .menubtn-go {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 120px;
+  height: 40px;
+}
+
+.retrybtn-go {
+  background: url('./assets/elements/retrybtn-go.png') no-repeat center center;
+  background-size: contain;
+  margin-top: 190px;
+  margin-right: 10px;
+}
+
+.retrybtn-go:hover {
+  background: url('./assets/elements/retrybtn-go.png') no-repeat center center;
+  background-size: contain;
+  opacity: 80%;
+}
+
+.menubtn-go{
+  background: url('./assets/elements/menubtn-go.png') no-repeat center center;
+  background-size: contain;
+  margin-top: 190px;
+  margin-right: 150px;
+}
+
+.menubtn-go:hover {
+  background: url('./assets/elements/menubtn-go.png') no-repeat center center;
+  background-size: contain;
+  opacity: 80%;
+}
+
+/* info skreen */
+.instructions-screen {
+  background: url('./assets/sprites/bg.gif')no-repeat center center;
+  background-size: cover;
+  width: 600px;
+  height: 469px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  aspect-ratio: 86/75;
+}
+.info-content {
+  align-items: center;
+  margin-left: 120px;
+  margin-bottom: 100px;
+  margin-top: -45px;
+}
+.Panel2{
+  background: url('./assets/elements/info-panel.png')no-repeat center center;
+  background-size: contain ;
+  width: 275px;
+  height: 500px;
+  flex-shrink: 0;
+  top: 500px;
+}
+.menubtn-info {
+  background: url('./assets/elements/menubtn-info.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  margin-top: 165px;
+  margin-right: -23px;
+  flex-shrink: 0;
+}
+.menubtn-info:hover {
+  background: url('./assets/elements/menubtn-info.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 180px;
+  height: 45px;
+  flex-shrink: 0;
+  opacity: 80%;
+}
+
+.x-info {
+  color: white;
+  background-image: url('./assets/elements/X-info.png');
+  background-size: cover;
+  width:30px;
+  height: 30px;
+  margin-top: 150px;
+  margin-right: -200px;
+}
+.x-info:hover {
+  color: white;
+  background-image: url('./assets/elements/X-info.png');
+  background-size: cover;
+  width:30px;
+  height: 30px;
+  margin-top: 150px;
+  margin-right: -200px;
+  opacity: 80%;
+}
+
+.data-screen {
+  background: url('./assets/sprites/bg.gif')no-repeat center center;
+  background-size: cover;
+  width: 600px;
+  height: 469px;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  aspect-ratio: 86/75;
+}
+
+.Panel3{
+  background: url('./assets/elements/data-panel.png')no-repeat center center;
+  background-size: contain ;
+  width: 275px;
+  height: 530px;
+  flex-shrink: 0;
+  margin-top: -55px;
+  justify-content: center; 
+  gap: 20px; /* space bw hs and rs */
+  margin-left: 110px;
+  padding-top: 60px;
+}
+
+.recent-scorechan {
+  color: #000;
+  font-family: "Press Start 2P";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 157%; /* 31.4px */
+  text-transform: uppercase;
+  margin-top: 243px;
+  margin-right: -98px;
+}
+
+.high-scorechan{
+  color: #080BB4;
+  font-family: "Press Start 2P";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  position: fixed;
+ 
+}
+
+.menubtn-data {
+  background: url('./assets/elements/menubtn-data.png')no-repeat;
+  background-size: contain;
+  width: 180px;
+  height: 45px;
+  margin-top: 50px; 
+  margin-bottom: 20px; /* spacing from bottom ig */
+  cursor: pointer;
+  padding-left: 100px;
+  padding-bottom: -100px;
+}
+.ICKYBUTTON :hover {
+  background: url('./assets/elements/menubtn-data.png')no-repeat;
+  background-size: contain;
+  width: 180px;
+  height: 45px;
+  margin-top: 50px; 
+  margin-bottom: 20px; 
+  cursor: pointer;
+  padding-left: 180px;
+  padding-bottom: -100px;
+  opacity:80% ;
+}
+.ICKYBUTTON {
+  margin-top: -15px;
+  margin-right: -32px;
+}
+.high-score {
+  margin-top: 200px;
+  margin-right: -95px;
+  position: absolute;
+  top: 45px;
+  left:305px;
+
+}
+
+
+@media (max-width: 650px) {
+  body {
+    padding: 10px;
+  }
+  
+  .app {
+    border-radius: 10px;
+  }
+  
+  .screen {
+    padding: 15px;
+  }
+  
+  h1 {
+    font-size: 24px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 12px;
+  }
+  
+  .start-button {
+    font-size: 14px;
+    padding: 15px;
+  }
+  
+  .instruction-item p {
+    font-size: 12px;
+  }
+  
+  .instruction-icon {
+    font-size: 24px;
+    margin-right: 15px;
+  }
+  
+  .score-display {
+    font-size: 36px;
+  }
+  .popup-content{
+    width: 320px;
+    height: 240px;
+  }
+  .retrybtn-go,.menubtn-go{
+    width: 100px;
+    height: 35px;
+  }
+}
+
